@@ -18,8 +18,6 @@ create_symlinks() {
 
 create_symlinks
 
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # gitstatus
 git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
 # f-sy-h
