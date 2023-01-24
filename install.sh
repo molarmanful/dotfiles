@@ -18,7 +18,6 @@ create_symlinks() {
 
 create_symlinks
 
-# gitstatus
 git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
-# f-sy-h
-git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/z-shell/F-Sy-H.git ~/.oh-my-zsh/custom/plugins/F-Sy-H
