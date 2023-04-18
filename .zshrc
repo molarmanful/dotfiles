@@ -20,7 +20,7 @@ SAVEHIST=1000
 
 HYPHEN_INSENSITIVE="true"
 
-plugins=(common-aliases git F-Sy-H zsh-autosuggestions z history colored-man-pages extract vscode)
+plugins=(common-aliases git F-Sy-H zsh-autosuggestions z history colored-man-pages extract vscode zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 source ~/gitstatus/gitstatus.prompt.zsh
