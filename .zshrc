@@ -2,6 +2,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=vim
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
