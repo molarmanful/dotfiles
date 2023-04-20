@@ -23,9 +23,25 @@ SAVEHIST=1000
 
 HYPHEN_INSENSITIVE="true"
 
+if [[ ! -d $ZSH ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+fi
+
+gs=(zsh-users/zsh-autosuggestions z-shell/F-Sy-H lukechilds/zsh-nvm)
+for g in "${gs[@]}"; do
+  d="$ZSH/custom/plugins/$(echo $g | sed 's:.*/::')"
+  if [[ ! -d $d ]]; then
+    git clone https://github.com/$g $d
+  fi
+done
+
 plugins=(common-aliases git F-Sy-H zsh-autosuggestions z history colored-man-pages extract vscode zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
+
+if [[ ! -f ~/gitstatus/gitstatus.prompt.zsh ]]; then
+  git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
+fi
 source ~/gitstatus/gitstatus.prompt.zsh
 
 bindkey -e
@@ -57,5 +73,5 @@ ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
 export PS2=$'   '
 
-clear
+# clear
 tput cvvis
