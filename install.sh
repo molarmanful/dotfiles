@@ -21,3 +21,6 @@ create_symlinks
 git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/z-shell/F-Sy-H.git ~/.oh-my-zsh/custom/plugins/F-Sy-H
+
+curl https://get.volta.sh | bash
+curl -s "https://get.sdkman.io" | bash
