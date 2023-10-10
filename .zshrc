@@ -73,5 +73,17 @@ ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
 export PS2=$'   '
 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$HOME/.local/bin:$PNPM_HOME:$PATH"
+
+export FLYCTL_INSTALL="/home/benji/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 # clear
 tput cvvis
