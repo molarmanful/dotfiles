@@ -24,3 +24,4 @@ git clone https://github.com/z-shell/F-Sy-H.git ~/.oh-my-zsh/custom/plugins/F-Sy
 
 curl https://get.volta.sh | bash
 curl -s "https://get.sdkman.io" | bash
+curl -L https://fly.io/install.sh | sh

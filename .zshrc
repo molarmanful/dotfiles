@@ -82,8 +82,8 @@ export PATH="$HOME/.local/bin:$PNPM_HOME:$PATH"
 export FLYCTL_INSTALL="/home/benji/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 # clear
 tput cvvis
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
