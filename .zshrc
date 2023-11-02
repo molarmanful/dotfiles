@@ -73,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 . ~/.asdf/plugins/golang/set-env.zsh
 
 # LSPs
-(( $+commands[hls] )) || ghcup install hls
+(( $+commands[haskell-language-server-wrapper] )) || ghcup install hls
 (( $+commands[shellcheck] )) || (stack install shellcheck && cargo install shellharden)
 (( $+commands[shfmt] )) || (go install mvdan.cc/sh/v3/cmd/shfmt@latest && asdf reshim golang)
 (( $+commands[eslint] )) || pnpm i -g eslint prettier vscode-langservers-extracted
