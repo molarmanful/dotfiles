@@ -2,22 +2,31 @@ local M = {}
 
 M.disabled = {}
 
-local esc = { "<ESC>", "escape insert mode", opts = { nowait = true } }
+local esc = { "<ESC>", "Escape insert mode", opts = { nowait = true } }
 
 M.neogit = {
-  ["<leader>go"] = {
-    function()
-      require("neogit").open()
-    end,
-    "open neogit",
+
+  n = {
+    ["<leader>go"] = {
+      function()
+        require("neogit").open()
+      end,
+      "Open neogit",
+    },
   },
 }
 
-M.abc = {
+M.telescope = {
 
   n = {
-    ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "find session" },
-    ["<BS>"] = { "<cmd> let @/ = '' <CR>", "clear /" },
+    ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "Find session" },
+  },
+}
+
+M.general = {
+
+  n = {
+    ["<BS>"] = { "<cmd> let @/ = '' <CR>", "Clear /" },
   },
 
   i = {
@@ -26,8 +35,8 @@ M.abc = {
   },
 
   v = {
-    [">"] = { ">gv", "indent" },
-    ["<"] = { "<gv", "dedent" },
+    [">"] = { ">gv", "Indent" },
+    ["<"] = { "<gv", "Dedent" },
   },
 }
 
