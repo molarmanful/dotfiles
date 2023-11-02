@@ -123,7 +123,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 
 # LEFT PROMPT
-export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}╬╗%{\e[0m%} '
+export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
 export PS2=$'   '
 
 # ALIASES
