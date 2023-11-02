@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/gitstatus/gitstatus.prompt.zsh
 
 # SYNC
-(( $+commands[chezmoi] )) || (asdf plugin add chezmoi && asdf install chezmoi latest && chezmoi init --apply molarmanful)
+(( $+commands[chezmoi] )) || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
 
 # RIGHT PROMPT
 bindkey -e
