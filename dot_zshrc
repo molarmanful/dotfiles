@@ -76,10 +76,11 @@ source $ZSH/oh-my-zsh.sh
 (( $+commands[haskell-language-server-wrapper] )) || ghcup install hls
 (( $+commands[shellcheck] )) || (stack install shellcheck && cargo install shellharden)
 (( $+commands[shfmt] )) || (go install mvdan.cc/sh/v3/cmd/shfmt@latest && asdf reshim golang)
-(( $+commands[eslint] )) || pnpm i -g eslint prettier vscode-langservers-extracted
-(( $+commands[stylelint] )) || pnpm i -g stylelint stylelint-lsp
-(( $+commands[svelte-language-server] )) || pnpm i -g svelte-language-server unocss-language-server
+[[ -f "$PNPM_HOME/eslint" ]] || pnpm i -g eslint prettier vscode-langservers-extracted
+[[ -f "$PNPM_HOME/stylelint"]] || pnpm i -g stylelint stylelint-lsp
+[[ -f "$PNPM_HOME/svelteserver" ]] || pnpm i -g svelte-language-server unocss-language-server
 (( $+commands[lua-language-server] )) || (asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest && cargo install stylua)
+[[ -f "$PNPM_HOME/bash-language-server" ]] || pnpm i -g bash-language-server
 (( $+commands[metals] )) || cs install metals scalafmt
 
 # GITSTATUS
@@ -87,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/gitstatus/gitstatus.prompt.zsh
 
 # SYNC
-(( $+commands[chezmoi] )) || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
+(( -d "$HOME/.local/share/chezmoi" )) || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
 
 # RIGHT PROMPT
 bindkey -e

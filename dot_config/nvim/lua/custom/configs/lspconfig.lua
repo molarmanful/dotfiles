@@ -7,7 +7,7 @@ local servers = {
   "lua_ls",
   "html",
   "cssls",
-  "stylelint-lsp",
+  "stylelint_lsp",
   "metals",
   "svelte",
   "hls",
