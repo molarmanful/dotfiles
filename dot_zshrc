@@ -16,7 +16,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # SCALA
-(( $+commands[cs] )) || (curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > cs && ./cs setup)
+(( $+commands[cs] )) || (curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > cs && chmod +x cs && ./cs setup)
 
 # ASDF
 [[ -d "$HOME/.asdf" ]] || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
@@ -24,7 +24,7 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 # HASKELL
 [[ -d "$HOME/.ghcup" ]] || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 source "$HOME/.ghcup/env"
-(( $+commands[ghc] )) || (ghcup install ghc && ghcup install stack)
+(( $+commands[ghc] )) || (ghcup install ghc && ghcup install stack && stack update)
 
 # NODE
 export VOLTA_HOME="$HOME/.volta"
@@ -123,7 +123,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 
 # LEFT PROMPT
-export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
+export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}╬╗%{\e[0m%} '
 export PS2=$'   '
 
 # ALIASES
