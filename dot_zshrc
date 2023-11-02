@@ -68,6 +68,9 @@ plugins=(common-aliases git F-Sy-H zsh-autosuggestions z history colored-man-pag
 
 source $ZSH/oh-my-zsh.sh
 
+# CMAKE
+(( $+commands[cmake] )) || (asdf plugin add cmake && asdf install cmake latest && asdf global cmake latest)
+
 # GOLANG
 (( $+commands[go] )) || (asdf plugin add golang && asdf install golang latest && asdf global golang latest)
 . ~/.asdf/plugins/golang/set-env.zsh
@@ -82,6 +85,9 @@ source $ZSH/oh-my-zsh.sh
 (( $+commands[lua-language-server] )) || (asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest && cargo install stylua)
 [[ -f "$PNPM_HOME/bash-language-server" ]] || pnpm i -g bash-language-server
 (( $+commands[metals] )) || cs install metals scalafmt
+
+# UTILS
+[[ -f "$HOME/.cargo/bin/rg" ]] || cargo install ripgrep
 
 # GITSTATUS
 [[ -f ~/gitstatus/gitstatus.prompt.zsh ]] || git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
