@@ -62,6 +62,10 @@ local plugins = {
 
   {
     "olimorris/persisted.nvim",
+    opts = {
+      use_git_branch = true,
+      autoload = true,
+    },
     config = true,
     lazy = false,
   },
