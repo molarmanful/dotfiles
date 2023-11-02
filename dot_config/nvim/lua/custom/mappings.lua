@@ -9,6 +9,12 @@ M.abc = {
   n = {
     ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "find session" },
     ["<BS>"] = { "<cmd> let @/ = '' <CR>", "clear /" },
+    ["<leader>go"] = {
+      function()
+        require("neogit").open()
+      end,
+      "open neogit",
+    },
   },
 
   i = {

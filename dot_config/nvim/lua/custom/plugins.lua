@@ -92,6 +92,17 @@ local plugins = {
       require("leap").add_default_mappings()
     end,
   },
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "sindrets/diffview.nvim",
+      "ibhagwan/fzf-lua",
+    },
+    config = true,
+  },
 }
 
 return plugins
