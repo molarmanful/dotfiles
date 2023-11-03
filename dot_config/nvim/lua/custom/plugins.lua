@@ -80,6 +80,7 @@ return {
         "json",
         "svelte",
         "c",
+        "go",
         "zig",
         "scala",
         "haskell",
