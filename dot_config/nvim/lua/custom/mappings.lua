@@ -19,7 +19,7 @@ M.neogit = {
 M.telescope = {
 
   n = {
-    ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "Find session" },
+    ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "Find symbol" },
     ["<leader>fx"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find session" },
   },
 }

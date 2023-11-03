@@ -44,10 +44,12 @@ return {
           automatic_installation = true,
         },
       },
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require "custom.configs.null-ls"
-      end,
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -79,6 +81,7 @@ return {
         "yaml",
         "rust",
         "bash",
+        "java",
       },
     },
   },
