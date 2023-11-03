@@ -18,6 +18,7 @@ local sources = {
   formatting.scalafmt,
   formatting.yamlfix,
   formatting.beautysh,
+  formatting.golines,
 }
 
 null_ls.setup {

@@ -35,6 +35,7 @@ return {
             "yamllint",
             "yamlfix",
             "unocss-language-server",
+            "gopls",
           },
         },
       },
@@ -54,6 +55,14 @@ return {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+
+  {
+    "scalameta/nvim-metals",
+    ft = { "scala", "sbt" },
+    config = function()
+      require "custom.configs.nvim-metals"
     end,
   },
 

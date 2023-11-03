@@ -6,8 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 [[ -d $ZSH ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 gs=(zsh-users/zsh-autosuggestions z-shell/F-Sy-H lukechilds/zsh-nvm)
 for g in "${gs[@]}"; do
-  d="$ZSH/custom/plugins/$(echo $g | sed 's:.*/::')"
-  [[ -d $d ]] || git clone https://github.com/$g $d
+    d="$ZSH/custom/plugins/$(echo $g | sed 's:.*/::')"
+    [[ -d $d ]] || git clone https://github.com/$g $d
 done
 
 # SDK
@@ -75,8 +75,9 @@ source $ZSH/oh-my-zsh.sh
 (( $+commands[go] )) || (asdf plugin add golang && asdf install golang latest && asdf global golang latest)
 . ~/.asdf/plugins/golang/set-env.zsh
 
-# LSPs
+# TOOLING
 (( $+commands[metals] )) || cs install metals scalafmt
+(( $+commands[golines] )) || (go install golang.org/x/tools/cmd/goimports@latest && go install github.com/segmentio/golines@latest && asdf reshim golang)
 
 # UTILS
 [[ -f "$HOME/.cargo/bin/rg" ]] || cargo install ripgrep
@@ -92,8 +93,8 @@ source ~/gitstatus/gitstatus.prompt.zsh
 bindkey -e
 precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
-  RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
-  zle reset-prompt
+    RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
+    zle reset-prompt
 }
 
 # KEYMAP
