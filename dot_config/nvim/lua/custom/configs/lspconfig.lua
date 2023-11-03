@@ -14,6 +14,10 @@ local servers = {
   "unocss",
   "eslint",
   "bashls",
+  "jsonls",
+  "rust_analyzer",
+  "yamlls",
+  "marksman",
 }
 
 for _, lsp in ipairs(servers) do

@@ -1,6 +1,42 @@
 local plugins = {
 
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "html-lsp",
+        "prettier",
+        "stylua",
+        "svelte-language-server",
+        "ormolu",
+        "haskell-language-server",
+        "unocss-language-server",
+        "eslint-lsp",
+        "shellcheck",
+        "bash-language-server",
+        "semgrep",
+        "black",
+        "julia-lsp",
+        "json-lsp",
+        "jsonlint",
+        "marksman",
+        "markdownlint",
+        "pylint",
+        "rust-analyzer",
+        "beautysh",
+        "shellharden",
+        "stylelint-lsp",
+        "write-good",
+        "yaml-language-server",
+        "yamllint",
+        "yamlfix",
+        "unocss-language-server",
+      },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
@@ -12,26 +48,6 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-  },
-
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "html-lsp",
-        "stylelint-lsp",
-        "prettier",
-        "stylua",
-        "metals",
-        "svelte-language-server",
-        "hls",
-        "unocss-language-server",
-        "eslint",
-        "shellcheck",
-        "bash-language-server",
-      },
-    },
   },
 
   {
@@ -51,6 +67,13 @@ local plugins = {
         "zig",
         "scala",
         "haskell",
+        "julia",
+        "markdown",
+        "markdown_inline",
+        "toml",
+        "yaml",
+        "rust",
+        "bash",
       },
     },
   },

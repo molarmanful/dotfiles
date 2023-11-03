@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "rosepine",
+  theme = "ashes",
   telescope = { style = "borderless" },
 }
 M.mappings = require "custom.mappings"
