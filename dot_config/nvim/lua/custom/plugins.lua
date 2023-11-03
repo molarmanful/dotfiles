@@ -60,7 +60,7 @@ return {
 
   {
     "scalameta/nvim-metals",
-    ft = { "scala", "sbt" },
+    lazy = false,
     config = function()
       require "custom.configs.nvim-metals"
     end,
@@ -111,15 +111,7 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    config = function()
-      require "plugins.configs.telescope"
-      require "custom.configs.telescope"
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    opts = require "custom.configs.telescope",
   },
 
   {
