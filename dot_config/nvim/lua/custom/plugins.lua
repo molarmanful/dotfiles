@@ -9,7 +9,7 @@ return {
           ensure_installed = {
             "lua-language-server",
             "html-lsp",
-            "prettier",
+            "prettierd",
             "stylua",
             "svelte-language-server",
             "ormolu",
