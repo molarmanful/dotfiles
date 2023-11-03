@@ -4,20 +4,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
-  "lua_ls",
-  "html",
-  "cssls",
-  "stylelint_lsp",
   "metals",
-  "svelte",
-  "hls",
-  "unocss",
-  "eslint",
-  "bashls",
-  "jsonls",
-  "rust_analyzer",
-  "yamlls",
-  "marksman",
 }
 
 for _, lsp in ipairs(servers) do

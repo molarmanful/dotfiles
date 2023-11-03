@@ -1,8 +1,8 @@
 local M = {}
 
-M.disabled = {}
-
 local esc = { "<ESC>", "Escape insert mode", opts = { nowait = true } }
+
+M.disabled = {}
 
 M.neogit = {
 

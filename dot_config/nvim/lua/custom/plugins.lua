@@ -1,44 +1,49 @@
-local plugins = {
-
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "html-lsp",
-        "prettier",
-        "stylua",
-        "svelte-language-server",
-        "ormolu",
-        "haskell-language-server",
-        "unocss-language-server",
-        "eslint-lsp",
-        "shellcheck",
-        "bash-language-server",
-        "semgrep",
-        "black",
-        "julia-lsp",
-        "json-lsp",
-        "jsonlint",
-        "marksman",
-        "markdownlint",
-        "pylint",
-        "rust-analyzer",
-        "beautysh",
-        "shellharden",
-        "stylelint-lsp",
-        "write-good",
-        "yaml-language-server",
-        "yamllint",
-        "yamlfix",
-        "unocss-language-server",
-      },
-    },
-  },
+return {
 
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          ensure_installed = {
+            "lua-language-server",
+            "html-lsp",
+            "prettier",
+            "stylua",
+            "svelte-language-server",
+            "ormolu",
+            "haskell-language-server",
+            "unocss-language-server",
+            "eslint-lsp",
+            "shellcheck",
+            "bash-language-server",
+            "semgrep",
+            "black",
+            "julia-lsp",
+            "json-lsp",
+            "jsonlint",
+            "marksman",
+            "markdownlint",
+            "pylint",
+            "rust-analyzer",
+            "beautysh",
+            "shellharden",
+            "stylelint-lsp",
+            "write-good",
+            "yaml-language-server",
+            "yamllint",
+            "yamlfix",
+            "unocss-language-server",
+          },
+        },
+      },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+          automatic_installation = true,
+        },
+      },
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
         require "custom.configs.null-ls"
@@ -128,5 +133,3 @@ local plugins = {
     config = true,
   },
 }
-
-return plugins
