@@ -12,12 +12,13 @@ local sources = {
   lint.zsh,
   lint.pylint,
   formatting.black,
-  formatting.prettier,
+  formatting.prettierd,
   formatting.stylua,
   formatting.shellharden,
   formatting.yamlfix,
   formatting.beautysh,
   formatting.golines,
+  formatting.mdformat,
 }
 
 null_ls.setup {
