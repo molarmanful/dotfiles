@@ -1,61 +1,101 @@
+local lsps = {
+  "lua_ls",
+  "html",
+  "svelte",
+  "unocss",
+  "eslint",
+  "bashls",
+  "marksman",
+  "rust_analyzer",
+  "stylelint_lsp",
+  "yamlls",
+  "unocss",
+  "hls",
+  "gopls",
+}
+
+local fmts = {
+  "prettierd",
+  "black",
+  "stylua",
+  "semgrep",
+  "fixjson",
+  "markdownlint",
+  "mdformat",
+  "pylint",
+  "beautysh",
+  "shellcheck",
+  "shellharden",
+  "write-good",
+  "yamllint",
+  "yamlfix",
+}
+
+local syns = {
+  "vim",
+  "lua",
+  "html",
+  "css",
+  "javascript",
+  "typescript",
+  "tsx",
+  "json",
+  "svelte",
+  "c",
+  "go",
+  "zig",
+  "scala",
+  "haskell",
+  "markdown",
+  "markdown_inline",
+  "toml",
+  "yaml",
+  "rust",
+  "bash",
+  "java",
+}
+
 return {
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "ormolu",
+      },
+    },
+  },
 
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          ensure_installed = {
-            "lua-language-server",
-            "html-lsp",
-            "prettierd",
-            "stylua",
-            "svelte-language-server",
-            "unocss-language-server",
-            "eslint-lsp",
-            "shellcheck",
-            "bash-language-server",
-            "semgrep",
-            "black",
-            "json-lsp",
-            "jsonlint",
-            "marksman",
-            "markdownlint",
-            "mdformat",
-            "pylint",
-            "rust-analyzer",
-            "beautysh",
-            "shellharden",
-            "stylelint-lsp",
-            "write-good",
-            "yaml-language-server",
-            "yamllint",
-            "yamlfix",
-            "unocss-language-server",
-            "gopls",
-            "haskell-language-server",
-            "ormolu",
-          },
-        },
-      },
-      {
-        "williamboman/mason-lspconfig.nvim",
-        opts = {
-          automatic_installation = true,
-        },
-      },
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
+      "mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require "custom.configs.lspconfig"(lsps)
     end,
+  },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require "custom.configs.null-ls"
+    end,
+  },
+
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+    opts = {
+      ensure_installed = fmts,
+      automatic_installation = true,
+      handlers = {},
+    },
   },
 
   {
@@ -69,35 +109,32 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tsx",
-        "json",
-        "svelte",
-        "c",
-        "go",
-        "zig",
-        "scala",
-        "haskell",
-        "markdown",
-        "markdown_inline",
-        "toml",
-        "yaml",
-        "rust",
-        "bash",
-        "java",
-      },
+      ensure_installed = syns,
     },
   },
 
   {
-    "github/copilot.vim",
-    lazy = false,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require "custom.configs.cmp"
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   },
 
   {
