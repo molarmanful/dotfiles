@@ -29,6 +29,8 @@ local fmts = {
   "write-good",
   "yamllint",
   "yamlfix",
+  "gci",
+  "golines",
 }
 
 local syns = {
@@ -94,7 +96,24 @@ return {
     opts = {
       ensure_installed = fmts,
       automatic_installation = true,
-      handlers = {},
+      handlers = {
+        gci = function() end,
+        golines = function()
+          local null_ls = require "null-ls"
+          local h = require "null-ls.helpers"
+          null_ls.register(h.make_builtin {
+            name = "golines",
+            method = null_ls.methods.FORMATTING,
+            filetypes = { "go" },
+            generator_opts = {
+              command = "golines",
+              args = { "--base-formatter", "gci", "--", "$FILENAME" },
+              to_stdin = true,
+            },
+            factory = h.formatter_factory,
+          })
+        end,
+      },
     },
   },
 
