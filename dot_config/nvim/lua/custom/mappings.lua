@@ -2,7 +2,12 @@ local M = {}
 
 local esc = { "<ESC>", "Escape insert mode", opts = { nowait = true } }
 
-M.disabled = {}
+M.disabled = {
+  i = {
+    ["<C-j>"] = "",
+    ["<C-k>"] = "",
+  },
+}
 
 M.neogit = {
 
@@ -19,6 +24,7 @@ M.neogit = {
 M.telescope = {
 
   n = {
+    ["<leader>ff"] = { "<cmd> Telescope file_browser hidden=true <CR>", "File browser" },
     ["<leader>fs"] = { "<cmd> Telescope persisted <CR>", "Find session" },
     ["<leader>fx"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find LSP symbol" },
     ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "Find LSP definitions" },
