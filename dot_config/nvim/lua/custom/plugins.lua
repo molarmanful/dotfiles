@@ -106,8 +106,14 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    },
     opts = {
       ensure_installed = syns,
+      autotag = {
+        enable = true,
+      },
     },
   },
 
