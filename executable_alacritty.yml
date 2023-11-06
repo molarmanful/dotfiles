@@ -1,8 +1,5 @@
 ---
 window:
-  dimensions:
-    columns: 0
-    lines: 0
   padding:
     x: 10
     y: 10
@@ -33,7 +30,6 @@ draw_bold_text_with_bright_colors: false
 custom_cursor_colors: true
 bell:
   animation: EaseOutExpo
-  color: '0xffffff'
   duration: 0
 key_bindings:
   - {key: V, mods: Command, action: Paste}
@@ -109,7 +105,9 @@ selection:
 mouse_bindings:
   - {mouse: Middle, action: PasteSelection}
 cursor:
-  style: Block
+  style:
+    shape: Block
+    blinking: 'Off'
   unfocused_hollow: true
 colors:
   primary:
@@ -153,12 +151,6 @@ colors:
       foreground: '#6e6a86'
       background: '#1f1d2e'
 live_config_reload: true
-debug:
-  render_timer: false
-  persistent_logging: false
-  log_level: 'OFF'
-  print_events: false
-  ref_test: false
 shell:
   program: C:\\Windows\\System32\\wsl.exe
   args: [--cd ~]
