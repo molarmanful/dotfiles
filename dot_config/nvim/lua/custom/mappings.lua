@@ -29,7 +29,7 @@ M.telescope = {
     ["<leader>fx"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find LSP symbol" },
     ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "Find LSP definitions" },
     ["gr"] = { "<cmd> Telescope lsp_references <CR>", "Find LSP references" },
-    ["<leader>q"] = { "<cmd> Telescope diagnostics <CR>", "List lsp diagnostics" },
+    ["<leader>q"] = { "<cmd> Telescope diagnostics <CR>", "List LSP diagnostics" },
   },
 }
 
