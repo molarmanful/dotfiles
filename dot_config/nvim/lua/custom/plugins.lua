@@ -8,6 +8,7 @@ local lsps = {
   "marksman",
   "rust_analyzer",
   "stylelint_lsp",
+  "dockerls",
   "yamlls",
   "unocss",
   "hls",
@@ -31,6 +32,7 @@ local fmts = {
   "yamlfix",
   "gci",
   "golines",
+  "hadolint",
 }
 
 local syns = {
