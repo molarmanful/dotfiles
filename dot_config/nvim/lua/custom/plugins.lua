@@ -119,6 +119,9 @@ return {
         enable = true,
       },
     },
+    config = function(_, opts)
+      require "custom.configs.treesitter"(opts)
+    end,
   },
 
   {
@@ -191,6 +194,7 @@ return {
     },
     config = true,
   },
+
   {
     "NvChad/nvterm",
     opts = {
