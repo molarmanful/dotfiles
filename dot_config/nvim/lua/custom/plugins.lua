@@ -183,4 +183,12 @@ return {
     },
     config = true,
   },
+  {
+    "NvChad/nvterm",
+    opts = {
+      behavior = {
+        auto_insert = false,
+      },
+    },
+  },
 }
