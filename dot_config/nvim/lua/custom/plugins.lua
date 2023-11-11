@@ -13,6 +13,7 @@ local lsps = {
   "unocss",
   "hls",
   "gopls",
+  "clangd",
 }
 
 local fmts = {
