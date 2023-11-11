@@ -33,6 +33,7 @@ local fmts = {
   "gci",
   "golines",
   "hadolint",
+  "clang-format",
 }
 
 local syns = {
@@ -174,6 +175,12 @@ return {
     config = function()
       require("leap").add_default_mappings()
     end,
+  },
+
+  {
+    "ggandor/flit.nvim",
+    lazy = false,
+    opts = {},
   },
 
   {
