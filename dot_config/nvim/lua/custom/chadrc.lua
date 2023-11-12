@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "ashes",
+  theme = "mountain",
 }
 M.mappings = require "custom.mappings"
 M.plugins = "custom.plugins"
