@@ -25,7 +25,7 @@ local fmts = {
   "markdownlint",
   "mdformat",
   "pylint",
-  "beautysh",
+  "shfmt",
   "shellcheck",
   "shellharden",
   "write-good",
@@ -35,6 +35,8 @@ local fmts = {
   "golines",
   "hadolint",
   "clang-format",
+  "raco-fmt",
+  "racket-fixw",
 }
 
 local syns = {
@@ -59,6 +61,7 @@ local syns = {
   "rust",
   "bash",
   "java",
+  "racket",
 }
 
 return {
