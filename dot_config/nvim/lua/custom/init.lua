@@ -4,6 +4,7 @@ local api = vim.api
 local cmd = vim.cmd
 local filetype = vim.filetype
 
+g.maplocalleader = ","
 opt.scrolloff = 999
 opt.whichwrap = "b,s"
 opt.wrap = false
