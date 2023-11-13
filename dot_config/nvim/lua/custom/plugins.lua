@@ -59,7 +59,6 @@ local syns = {
   "rust",
   "bash",
   "java",
-  "racket",
 }
 
 return {

@@ -11,7 +11,6 @@ return function(lsps)
       capabilities = capabilities,
     }
   end
-  lspconfig.racket_langserver.setup {}
 
   require("mason-lspconfig").setup {
     ensure_installed = lsps,
