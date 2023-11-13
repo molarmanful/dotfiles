@@ -14,6 +14,7 @@ local lsps = {
   "hls",
   "gopls",
   "clangd",
+  "clojure_lsp",
 }
 
 local fmts = {
@@ -35,6 +36,9 @@ local fmts = {
   "golines",
   "hadolint",
   "clang-format",
+  "clj-kondo",
+  "zprint",
+  "actionlint",
 }
 
 local syns = {
@@ -59,6 +63,7 @@ local syns = {
   "rust",
   "bash",
   "java",
+  "clojure",
 }
 
 return {
