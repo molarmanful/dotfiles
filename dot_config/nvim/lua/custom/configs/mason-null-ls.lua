@@ -11,7 +11,6 @@ return function(fmts)
         golines = function()
           null_ls.register(formatting.golines.with {
             generator_opts = {
-              command = "golines",
               args = { "--base-formatter", "gci", "--", "$FILENAME" },
               to_stdin = true,
             },
