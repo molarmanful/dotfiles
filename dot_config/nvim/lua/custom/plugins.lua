@@ -35,8 +35,6 @@ local fmts = {
   "golines",
   "hadolint",
   "clang-format",
-  "raco-fmt",
-  "racket-fixw",
 }
 
 local syns = {
