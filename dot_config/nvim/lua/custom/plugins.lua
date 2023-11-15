@@ -35,8 +35,8 @@ local fmts = {
   "gci",
   "golines",
   "hadolint",
-  "clang-format",
   "zprint",
+  "clang-format",
   "actionlint",
 }
 
