@@ -38,6 +38,7 @@ local fmts = {
   "zprint",
   "clang-format",
   "actionlint",
+  "fourmolu",
 }
 
 local syns = {
@@ -70,9 +71,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
-        "ormolu",
-      },
+      ensure_installed = {},
     },
   },
 
