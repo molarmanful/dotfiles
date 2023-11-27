@@ -42,7 +42,7 @@ config.keys = {
 	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Right") },
 
-	{ key = "h", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "n", mods = "LEADER", action = act.SpawnWindow },
 	{ key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
