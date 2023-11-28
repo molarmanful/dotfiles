@@ -22,7 +22,6 @@ cfg.colors = {
 cfg.use_fancy_tab_bar = false
 
 cfg.font = wezterm.font("GohuFont uni11 Nerd Font")
--- cfg.font = wezterm.font("EnvyCodeR Nerd Font")
 cfg.font_size = 8
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
