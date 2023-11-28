@@ -23,10 +23,10 @@ cfg.use_fancy_tab_bar = false
 
 cfg.font = wezterm.font("GohuFont uni11 Nerd Font")
 cfg.font_size = 8
--- config.cell_width = 0.9
--- config.line_height = 1.2
--- config.freetype_load_flags = "NO_HINTING"
--- config.freetype_load_target = "Mono"
+-- cfg.cell_width = 0.5
+-- cfg.line_height = 1.2
+-- cfg.freetype_load_flags = "NO_HINTING"
+-- cfg.freetype_load_target = "Mono"
 
 cfg.disable_default_key_bindings = true
 cfg.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 }
