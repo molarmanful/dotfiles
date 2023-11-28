@@ -16,6 +16,9 @@ end
 local theme = "nightfox"
 
 M.ui = {
+  statusline = {
+    theme = "minimal",
+  },
   changed_themes = {
     [theme] = gen_base {
       black = "#000000",
