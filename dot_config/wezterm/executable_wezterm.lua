@@ -2,28 +2,35 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local act = wezterm.action
 
-local config = {}
+local cfg = {}
 
 if wezterm.config_builder then
-	config = wezterm.config_builder()
+	cfg = wezterm.config_builder()
 end
 
-config.default_domain = "WSL:Ubuntu-22.04"
-config.webgpu_power_preference = "HighPerformance"
-config.color_scheme = "rose-pine"
-config.use_fancy_tab_bar = false
-config.colors = {
-	tab_bar = { background = "#000000" },
-}
-config.font = wezterm.font("FiraCode Nerd Font", { weight = "Light" })
-config.font_size = 8
-config.cell_width = 0.8
-config.use_dead_keys = false
-config.scrollback_lines = 5000
+cfg.default_domain = "WSL:Ubuntu-22.04"
+cfg.webgpu_power_preference = "HighPerformance"
+cfg.use_dead_keys = false
+cfg.scrollback_lines = 5000
 
-config.disable_default_key_bindings = true
-config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 }
-config.keys = {
+cfg.color_scheme = "Mathias (Gogh)"
+cfg.colors = {
+	tab_bar = {
+		background = "#000000",
+	},
+}
+cfg.use_fancy_tab_bar = false
+
+cfg.font = wezterm.font("GohuFont uni11 Nerd Font")
+cfg.font_size = 8
+-- config.cell_width = 0.9
+-- config.line_height = 1.2
+-- config.freetype_load_flags = "NO_HINTING"
+-- config.freetype_load_target = "Mono"
+
+cfg.disable_default_key_bindings = true
+cfg.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 }
+cfg.keys = {
 	{ key = "Backspace", mods = "CTRL", action = act.SendString("\x17") },
 	{ key = "C", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
 	{ key = "V", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
@@ -48,6 +55,12 @@ config.keys = {
 	{ key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 	{ key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "s", mods = "LEADER|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "LEADER|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "n", mods = "LEADER|CTRL", action = act.SpawnWindow },
+	{ key = "w", mods = "LEADER|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+	{ key = "x", mods = "LEADER|CTRL", action = act.CloseCurrentPane({ confirm = true }) },
+	{ key = "t", mods = "LEADER|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
 }
@@ -57,4 +70,4 @@ wezterm.on("gui-startup", function()
 	window:fullscreen()
 end)
 
-return config
+return cfg
