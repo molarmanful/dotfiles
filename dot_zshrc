@@ -24,7 +24,7 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 # HASKELL
 [[ -d "$HOME/.ghcup" ]] || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 source "$HOME/.ghcup/env"
-(( $+commands[stack] )) || (ghcup install ghc && ghcup install stack && stack update)
+(( $+commands[stack] )) || (ghcup install ghc recommended && ghcup install stack recommended && stack update)
 
 # NODE
 export VOLTA_HOME="$HOME/.volta"
