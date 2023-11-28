@@ -40,14 +40,10 @@ cfg.keys = {
 
 	{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 	{ key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
-	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-	{ key = "h", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Left") },
-	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Up") },
-	{ key = "l", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Right") },
+	{ key = "H", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
+	{ key = "J", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
+	{ key = "K", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
+	{ key = "L", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
 
 	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
