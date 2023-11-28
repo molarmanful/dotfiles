@@ -1,6 +1,6 @@
 local M = {}
 
-function GenBase(m)
+local gen_base = function(m)
   m.statusline_bg = m.black2
   m.lightbg = m.one_bg2
   return {
@@ -13,9 +13,11 @@ function GenBase(m)
   }
 end
 
+local theme = "nightfox"
+
 M.ui = {
   changed_themes = {
-    ["bearded-arc"] = GenBase {
+    [theme] = gen_base {
       black = "#000000",
       darker_black = "#07080d",
       black2 = "#0e101a",
@@ -24,7 +26,7 @@ M.ui = {
       one_bg3 = "#232840",
     },
   },
-  theme = "bearded-arc",
+  theme = theme,
 }
 M.mappings = require "custom.mappings"
 M.plugins = "custom.plugins"
