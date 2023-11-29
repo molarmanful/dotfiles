@@ -32,8 +32,8 @@ end
 
 font({ "CozetteVector" }, 9.4, 0.7)
 font({ "TamzenForPowerline" }, 9, 0.8)
-font({ "scientifica" }, 8, 0.7)
 font("Greybeard 11px", 8, 0.8)
+font({ "scientifica" }, 8, 0.7)
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
 -- cfg.freetype_load_flags = "NO_HINTING"
