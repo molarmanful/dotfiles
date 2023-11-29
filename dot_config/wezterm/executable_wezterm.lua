@@ -30,10 +30,10 @@ local font = function(fam, size, scale)
 	cfg.font_size = size
 end
 
-font("Greybeard 11px", 8, 0.8)
 font({ "CozetteVector" }, 9.4, 0.7)
 font({ "TamzenForPowerline" }, 9, 0.8)
 font({ "scientifica" }, 8, 0.7)
+font("Greybeard 11px", 8, 0.8)
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
 -- cfg.freetype_load_flags = "NO_HINTING"
@@ -60,13 +60,13 @@ cfg.keys = {
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "n", mods = "LEADER", action = act.SpawnWindow },
 	{ key = "w", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
-	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
+	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "s", mods = "LEADER|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "v", mods = "LEADER|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "n", mods = "LEADER|CTRL", action = act.SpawnWindow },
 	{ key = "w", mods = "LEADER|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-	{ key = "x", mods = "LEADER|CTRL", action = act.CloseCurrentPane({ confirm = true }) },
+	{ key = "x", mods = "LEADER|CTRL", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "t", mods = "LEADER|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
