@@ -21,8 +21,19 @@ cfg.colors = {
 }
 cfg.use_fancy_tab_bar = false
 
-cfg.font = wezterm.font("GohuFont uni11 Nerd Font")
-cfg.font_size = 8
+local font = function(fam, size, scale)
+	local f = fam
+	if type(fam) == "table" then
+		f = { family = fam[1], weight = "Medium" }
+	end
+	cfg.font = wezterm.font_with_fallback({ f, { family = "Symbols Nerd Font", scale = scale } })
+	cfg.font_size = size
+end
+
+font({ "TamzenForPowerline" }, 9, 0.8)
+font("Greybeard 11px", 8, 0.8)
+font({ "CozetteVector" }, 9.4, 0.7)
+font({ "scientifica" }, 8, 0.7)
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
 -- cfg.freetype_load_flags = "NO_HINTING"
