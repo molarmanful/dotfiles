@@ -69,6 +69,7 @@ cfg.keys = {
 	{ key = "w", mods = "LEADER|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 	{ key = "x", mods = "LEADER|CTRL", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "t", mods = "LEADER|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
 
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
 }
