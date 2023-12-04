@@ -78,7 +78,7 @@ cfg.keys = {
 
 wezterm.on("gui-startup", function()
 	local window = mux.spawn_window({})
-	window:fullscreen()
+	window:toggle_fullscreen()
 end)
 
 return cfg
