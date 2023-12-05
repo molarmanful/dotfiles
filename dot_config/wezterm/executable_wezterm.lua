@@ -74,11 +74,15 @@ cfg.keys = {
 	{ key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
 
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
+	{ key = "l", mods = "LEADER", action = wezterm.action.ShowDebugOverlay },
 }
 
-wezterm.on("gui-startup", function()
-	local window = mux.spawn_window({})
+wezterm.on("gui-startup", function(cmd)
+	local window = mux.spawn_window(cmd or {})
 	window:toggle_fullscreen()
+	local overrides = window:get_config_overrides() or {}
+	overrides.font_size = overrides.font_size * window:get_dimensions().dpi / 96
+	window:set_config_overrides(overrides)
 end)
 
 return cfg
