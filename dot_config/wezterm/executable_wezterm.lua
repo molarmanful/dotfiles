@@ -83,7 +83,7 @@ wezterm.on("gui-startup", function(cmd)
 	local gui_window = window:gui_window()
 	local overrides = gui_window:get_config_overrides() or {}
 	gui_window:toggle_fullscreen()
-	overrides.font_size = cfg.font_size * gui_window:get_dimensions().dpi / 96
+	overrides.font_size = cfg.font_size * 96 / gui_window:get_dimensions().dpi
 	window:set_config_overrides(overrides)
 end)
 
