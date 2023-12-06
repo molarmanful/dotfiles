@@ -48,6 +48,7 @@ cfg.keys = {
 	{ key = "Backspace", mods = "CTRL", action = act.SendString("\x17") },
 	{ key = "C", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
 	{ key = "V", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+	{ key = "2", mods = "LEADER|CTRL", action = act.EmitEvent("dbl-font") },
 	{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
 	{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 	{ key = "0", mods = "CTRL", action = act.ResetFontSize },
@@ -71,18 +72,25 @@ cfg.keys = {
 	{ key = "w", mods = "LEADER|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 	{ key = "x", mods = "LEADER|CTRL", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "t", mods = "LEADER|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
+	{ key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
 
 	{ key = "r", mods = "LEADER", action = act.ReloadConfiguration },
-	{ key = "l", mods = "LEADER", action = wezterm.action.ShowDebugOverlay },
+	{ key = "l", mods = "LEADER", action = act.ShowDebugOverlay },
 }
 
 wezterm.on("gui-startup", function(cmd)
-	local window = mux.spawn_window(cmd or {})
-	window:toggle_fullscreen()
-	local overrides = window:get_config_overrides() or {}
-	overrides.font_size = overrides.font_size * window:get_dimensions().dpi / 96
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	local gui_window = window:gui_window()
+	local overrides = gui_window:get_config_overrides() or {}
+	gui_window:toggle_fullscreen()
+	overrides.font_size = cfg.font_size * gui_window:get_dimensions().dpi / 96
 	window:set_config_overrides(overrides)
+end)
+
+wezterm.on("dbl-font", function(window, pane)
+	for _ = 1, 7 do
+		window:perform_action(act.IncreaseFontSize, pane)
+	end
 end)
 
 return cfg

@@ -225,4 +225,9 @@ return {
       require("conjure.mapping")["on-filetype"]()
     end,
   },
+
+  {
+    "richardbizik/nvim-toc",
+    ft = { "markdown" },
+  },
 }
