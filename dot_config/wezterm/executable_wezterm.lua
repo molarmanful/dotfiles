@@ -84,7 +84,8 @@ wezterm.on("gui-startup", function(cmd)
 	local overrides = gui_window:get_config_overrides() or {}
 	gui_window:toggle_fullscreen()
 	overrides.font_size = cfg.font_size * 96 / gui_window:get_dimensions().dpi
-	window:set_config_overrides(overrides)
+	gui_window:set_config_overrides(overrides)
+	print(overrides.font_size)
 end)
 
 wezterm.on("dbl-font", function(window, pane)
