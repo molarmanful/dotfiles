@@ -13,10 +13,23 @@ cfg.webgpu_power_preference = "HighPerformance"
 cfg.use_dead_keys = false
 cfg.scrollback_lines = 5000
 
-cfg.color_scheme = "Mathias (Gogh)"
+cfg.color_scheme = "nightfox"
 cfg.colors = {
+	background = "black",
 	tab_bar = {
 		background = "#000000",
+		active_tab = {
+			bg_color = "black",
+			fg_color = "white",
+		},
+		inactive_tab = {
+			bg_color = "#151826",
+			fg_color = "#aeafb0",
+		},
+		new_tab = {
+			bg_color = "#07080d",
+			fg_color = "#aeafb0",
+		},
 	},
 }
 cfg.use_fancy_tab_bar = false

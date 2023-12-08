@@ -216,9 +216,7 @@ return {
     "Olical/conjure",
     ft = { "clojure", "fennel", "python" },
     dependencies = {
-      {
-        "PaterJason/cmp-conjure",
-      },
+      "PaterJason/cmp-conjure",
     },
     config = function()
       require("conjure.main").main()
@@ -227,7 +225,17 @@ return {
   },
 
   {
-    "richardbizik/nvim-toc",
+    "lukas-reineke/headlines.nvim",
+    ft = { "markdown", "rmd", "norg", "org" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {},
+  },
+
+  {
+    "preservim/vim-markdown",
     ft = { "markdown" },
+    branch = "master",
   },
 }
