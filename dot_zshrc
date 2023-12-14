@@ -1,78 +1,27 @@
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 # lol nah
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # OPTS
-local HYPHEN_INSENSITIVE="true"
-0=${${(M)${0::=${(%):-%x}}:#/*}:-$PWD/$0}
+HYPHEN_INSENSITIVE="true"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
+ZSH_THEME_GIT_PROMPT_PREFIX=" @ "
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 
-# ZINIT
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-  command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-    print -P "%F{33} %F{34}Installation successful.%f%b" || \
-    print -P "%F{160} The clone has failed.%f%b"
+# ZIM
+ZIM_HOME=~/.zim
+if [[ ! -e "$ZIM_HOME/zimfw.zsh" ]]; then
+  curl -fsSL --create-dirs -o "$ZIM_HOME/zimfw.zsh" https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-
-zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/benji/.zshrc'
-
-autoload -Uz zrecompile
-autoload -Uz compinit
-local DUMP="~/.zcompdump"
-if [[ -s $DUMP(#qN.mh+24) && (! -s "$DUMP.zwc" || "$DUMP" -nt "$DUMP.zwc") ]]; then
-    compinit -i d $DUMP
-    zrecompile $DUMP
+if [[ ! "$ZIM_HOME/init.zsh" -nt "${ZDOTDIR:-$HOME}/.zimrc" ]]; then
+  source "$ZIM_HOME/zimfw.zsh" init -q
 fi
-compinit -C
+source "$ZIM_HOME/init.zsh"
 
-zinit light-mode for \
-  zdharma-continuum/zinit-annex-as-monitor \
-  zdharma-continuum/zinit-annex-bin-gem-node \
-  zdharma-continuum/zinit-annex-patch-dl \
-  zdharma-continuum/zinit-annex-rust
-
-zinit wait lucid for \
-  OMZL::git.zsh \
-  OMZP::git \
-  OMZL::history.zsh \
-  OMZP::history \
-  OMZP::common-aliases \
-  OMZP::colored-man-pages \
-  OMZP::extract
-
-zinit wait lucid for \
-  zdharma-continuum/fast-syntax-highlighting \
-  zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-completions \
-  agkozak/zsh-z \
-  BurntSushi/ripgrep
-
-zinit light asdf-vm/asdf
-zinit sbin'bin/zsweep' for @psprint/zsh-sweep
-
-# SETOPT
-setopt auto_cd
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_all_dups
-setopt hist_find_no_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt append_history
-setopt inc_append_history
-setopt hist_reduce_blanks
-setopt share_history
-setopt complete_in_word
-setopt always_to_end
-setopt prompt_subst
-unsetopt menu_complete
-setopt auto_menu
+# SYNC
+[[ -d "$HOME/.local/share/chezmoi" ]] || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
 
 # SDK
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -101,7 +50,6 @@ export FLYCTL_INSTALL="$HOME/.fly"
 [[ -d $FLYCTL_INSTALL ]] || curl -L https://fly.io/install.sh | sh
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-# RUST
 (( $+commands[rustup] )) || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # NEOVIM
@@ -121,19 +69,31 @@ export EDITOR=nvim
 # TOOLING
 (( $+commands[metals] )) || cs install metals scalafmt
 (( $+commands[golines] )) || (go install golang.org/x/tools/cmd/goimports@latest && go install github.com/segmentio/golines@latest && asdf reshim golang)
+(( $+commands[rg] )) || cargo install ripgrep
 
-# SYNC
-[[ -d "$HOME/.local/share/chezmoi" ]] || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
-
-# GITSTATUS
-[[ -f ~/gitstatus/gitstatus.prompt.zsh ]] || git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
-source ~/gitstatus/gitstatus.prompt.zsh
+# SETOPT
+setopt auto_cd
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt append_history
+setopt inc_append_history
+setopt hist_reduce_blanks
+setopt share_history
+setopt complete_in_word
+setopt always_to_end
+setopt prompt_subst
+unsetopt menu_complete
+setopt auto_menu
 
 # RIGHT PROMPT
 bindkey -e
 precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
-  local RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
+  RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
   zle reset-prompt
 }
 
@@ -145,15 +105,10 @@ bindkey '^H' backward-delete-char
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-local ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 zle -N zle-line-finish
-
-local ZSH_THEME_GIT_PROMPT_PREFIX=" @ "
-local ZSH_THEME_GIT_PROMPT_SUFFIX=""
-local ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 
 # LEFT PROMPT
 export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
@@ -167,4 +122,4 @@ alias vim='nvim'
 # LIFTOFF
 tput cvvis
 
-# zprof
+zprof
