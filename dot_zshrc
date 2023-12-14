@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # lol nah
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -6,9 +6,8 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # OPTS
 HYPHEN_INSENSITIVE="true"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
-ZSH_THEME_GIT_PROMPT_PREFIX=" @ "
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+MNML_OK_COLOR="cyan"
+MNML_USER_CHAR="∫"
 
 # ZIM
 ZIM_HOME=~/.zim
@@ -19,6 +18,28 @@ if [[ ! "$ZIM_HOME/init.zsh" -nt "${ZDOTDIR:-$HOME}/.zimrc" ]]; then
   source "$ZIM_HOME/zimfw.zsh" init -q
 fi
 source "$ZIM_HOME/init.zsh"
+
+# BOTTOM PROMPT
+end=$(tput cup 9999 0)
+PS1='%{$end%}'"$PS1"
+
+# SETOPT
+setopt auto_cd
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt append_history
+setopt inc_append_history
+setopt hist_reduce_blanks
+setopt share_history
+setopt complete_in_word
+setopt always_to_end
+setopt prompt_subst
+unsetopt menu_complete
+setopt auto_menu
 
 # SYNC
 [[ -d "$HOME/.local/share/chezmoi" ]] || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
@@ -71,32 +92,6 @@ export EDITOR=nvim
 (( $+commands[golines] )) || (go install golang.org/x/tools/cmd/goimports@latest && go install github.com/segmentio/golines@latest && asdf reshim golang)
 (( $+commands[rg] )) || cargo install ripgrep
 
-# SETOPT
-setopt auto_cd
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_all_dups
-setopt hist_find_no_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt append_history
-setopt inc_append_history
-setopt hist_reduce_blanks
-setopt share_history
-setopt complete_in_word
-setopt always_to_end
-setopt prompt_subst
-unsetopt menu_complete
-setopt auto_menu
-
-# RIGHT PROMPT
-bindkey -e
-precmd() { RPROMPT="" }
-function zle-line-init zle-keymap-select {
-  RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
-  zle reset-prompt
-}
-
 # KEYMAP
 bindkey "jk" vi-cmd-mode
 bindkey "kj" vi-cmd-mode
@@ -104,15 +99,6 @@ bindkey '^?' backward-delete-char
 bindkey '^H' backward-delete-char
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
-
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-zle -N zle-line-finish
-
-# LEFT PROMPT
-export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
-export PS2=$'   '
 
 # ALIASES
 alias ls='ls -Ga'
@@ -122,4 +108,4 @@ alias vim='nvim'
 # LIFTOFF
 tput cvvis
 
-zprof
+# zprof

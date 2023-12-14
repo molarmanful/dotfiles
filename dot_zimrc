@@ -1,15 +1,21 @@
 zmodule environment
+zmodule git
 zmodule input
-
 zmodule archive
 zmodule utility
+zmodule magic-enter
+
+zmodule ohmyzsh/ohmyzsh --source lib/theme-and-appearance.zsh
 zmodule ohmyzsh/ohmyzsh --root plugins/colored-man-pages
+
+zmodule prompt-pwd
+zmodule git-info
+zmodule minimal
 
 zmodule asdf
 zmodule fzf
 zmodule kiesman99/zim-zoxide
 zmodule psprint/zsh-sweep
-zmodule romkatv/gitstatus --source gitstatus.prompt.zsh
 zmodule joke/zim-github-cli
 
 zmodule zsh-users/zsh-completions
