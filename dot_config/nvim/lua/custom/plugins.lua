@@ -39,6 +39,8 @@ local fmts = {
   "clang-format",
   "actionlint",
   "fourmolu",
+  "fish",
+  "fish_indent",
 }
 
 local syns = {
@@ -64,6 +66,7 @@ local syns = {
   "bash",
   "java",
   "clojure",
+  "fish",
 }
 
 return {

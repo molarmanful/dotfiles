@@ -34,7 +34,6 @@ setopt hist_verify
 setopt append_history
 setopt inc_append_history
 setopt hist_reduce_blanks
-setopt share_history
 setopt complete_in_word
 setopt always_to_end
 setopt prompt_subst
@@ -109,3 +108,5 @@ alias vim='nvim'
 tput cvvis
 
 # zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
