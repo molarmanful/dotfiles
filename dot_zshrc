@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # lol nah
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -167,4 +167,4 @@ alias vim='nvim'
 # LIFTOFF
 tput cvvis
 
-zprof
+# zprof
