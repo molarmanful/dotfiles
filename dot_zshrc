@@ -3,8 +3,76 @@ zmodload zsh/zprof
 # lol nah
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# ZSH
-export ZSH="$HOME/.oh-my-zsh"
+# OPTS
+local HYPHEN_INSENSITIVE="true"
+0=${${(M)${0::=${(%):-%x}}:#/*}:-$PWD/$0}
+
+# ZINIT
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+  command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+    print -P "%F{33} %F{34}Installation successful.%f%b" || \
+    print -P "%F{160} The clone has failed.%f%b"
+fi
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/home/benji/.zshrc'
+
+autoload -Uz zrecompile
+autoload -Uz compinit
+local DUMP="~/.zcompdump"
+if [[ -s $DUMP(#qN.mh+24) && (! -s "$DUMP.zwc" || "$DUMP" -nt "$DUMP.zwc") ]]; then
+    compinit -i d $DUMP
+    zrecompile $DUMP
+fi
+compinit -C
+
+zinit light-mode for \
+  zdharma-continuum/zinit-annex-as-monitor \
+  zdharma-continuum/zinit-annex-bin-gem-node \
+  zdharma-continuum/zinit-annex-patch-dl \
+  zdharma-continuum/zinit-annex-rust
+
+zinit wait lucid for \
+  OMZL::git.zsh \
+  OMZP::git \
+  OMZL::history.zsh \
+  OMZP::history \
+  OMZP::common-aliases \
+  OMZP::colored-man-pages \
+  OMZP::extract
+
+zinit wait lucid for \
+  zdharma-continuum/fast-syntax-highlighting \
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-completions \
+  agkozak/zsh-z \
+  BurntSushi/ripgrep
+
+zinit light asdf-vm/asdf
+zinit sbin'bin/zsweep' for @psprint/zsh-sweep
+
+# SETOPT
+setopt auto_cd
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt append_history
+setopt inc_append_history
+setopt hist_reduce_blanks
+setopt share_history
+setopt complete_in_word
+setopt always_to_end
+setopt prompt_subst
+unsetopt menu_complete
+setopt auto_menu
 
 # SDK
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -13,9 +81,6 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # SCALA
 (( $+commands[cs] )) || (curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > cs && chmod +x cs && ./cs setup)
-
-# ASDF
-[[ -d "$HOME/.asdf" ]] || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 
 # HASKELL
 [[ -d "$HOME/.ghcup" ]] || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
@@ -46,25 +111,6 @@ export PATH="$BOB_DIR/nvim-bin:$PATH"
 (( $+commands[nvim] )) || (bob use latest && git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1)
 export EDITOR=nvim
 
-zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/benji/.zshrc'
-
-# autoload -Uz compinit
-# [ ! "$(find ~/.zcompdump -mtime +1)" ] || compinit
-# compinit -C
-
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-
-HYPHEN_INSENSITIVE="true"
-
-plugins=(common-aliases git F-Sy-H zsh-autosuggestions z history colored-man-pages extract vscode asdf)
-
-source $ZSH/oh-my-zsh.sh
-
 # CMAKE
 (( $+commands[cmake] )) || (asdf plugin add cmake && asdf install cmake latest && asdf global cmake latest)
 
@@ -76,22 +122,19 @@ source $ZSH/oh-my-zsh.sh
 (( $+commands[metals] )) || cs install metals scalafmt
 (( $+commands[golines] )) || (go install golang.org/x/tools/cmd/goimports@latest && go install github.com/segmentio/golines@latest && asdf reshim golang)
 
-# UTILS
-[[ -f "$HOME/.cargo/bin/rg" ]] || cargo install ripgrep
+# SYNC
+[[ -d "$HOME/.local/share/chezmoi" ]] || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
 
 # GITSTATUS
 [[ -f ~/gitstatus/gitstatus.prompt.zsh ]] || git clone --depth=1 https://github.com/romkatv/gitstatus.git ~/gitstatus
 source ~/gitstatus/gitstatus.prompt.zsh
 
-# SYNC
-[[ -d "$HOME/.local/share/chezmoi" ]] || (asdf plugin add chezmoi && asdf install chezmoi latest && asdf global chezmoi latest && chezmoi init --apply molarmanful)
-
 # RIGHT PROMPT
 bindkey -e
 precmd() { RPROMPT="" }
 function zle-line-init zle-keymap-select {
-    RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
-    zle reset-prompt
+  local RPS1=$'${${KEYMAP/vicmd/NORMAL}/(main|viins)/} %{$fg_bold[yellow]%}%~%{$reset_color%} $GITSTATUS_PROMPT%{$reset_color%}'
+  zle reset-prompt
 }
 
 # KEYMAP
@@ -102,15 +145,15 @@ bindkey '^H' backward-delete-char
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
+local ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241"
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 zle -N zle-line-finish
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" @ "
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+local ZSH_THEME_GIT_PROMPT_PREFIX=" @ "
+local ZSH_THEME_GIT_PROMPT_SUFFIX=""
+local ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 
 # LEFT PROMPT
 export PS1=$'%{$(tput cup $(tput cols))%B%(?.%F{cyan}.%F{red})%}λ%{\e[0m%} '
