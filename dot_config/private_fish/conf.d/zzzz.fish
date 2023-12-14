@@ -53,6 +53,7 @@ end
 function _my_postexec --on-event fish_postexec
   set -l last_status $pipestatus
   set -g _my_status_c "$_hydro_color_prompt"
+  set -g _my_status_e ""
 
   for code in $pipestatus
     if test $code -ne 0
