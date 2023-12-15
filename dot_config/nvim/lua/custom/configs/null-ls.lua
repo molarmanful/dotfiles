@@ -5,6 +5,9 @@ local lint = null_ls.builtins.diagnostics
 
 null_ls.setup {
   debug = true,
-  sources = {},
+  sources = {
+    lint.fish,
+    formatting.fish_indent,
+  },
   on_attach = require "custom.util.saveform",
 }

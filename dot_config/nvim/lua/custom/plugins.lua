@@ -20,12 +20,12 @@ local lsps = {
 local fmts = {
   "prettierd",
   "black",
+  "pylint",
   "stylua",
   "semgrep",
   "fixjson",
   "markdownlint",
   "mdformat",
-  "pylint",
   "shfmt",
   "shellcheck",
   "shellharden",
@@ -39,8 +39,6 @@ local fmts = {
   "clang-format",
   "actionlint",
   "fourmolu",
-  "fish",
-  "fish_indent",
 }
 
 local syns = {
@@ -105,6 +103,49 @@ return {
     },
     opts = require "custom.configs.mason-null-ls"(fmts),
   },
+
+  -- {
+  --   "stevearc/conform.nvim",
+  --   event = { "BufWritePre" },
+  --   cmd = { "ConformInfo" },
+  --   keys = {
+  --     {
+  --       "<leader>f",
+  --       function()
+  --         require("conform").format { async = true, lsp_fallback = true }
+  --       end,
+  --       mode = "",
+  --       desc = "Format buffer",
+  --     },
+  --   },
+  --   opts = {
+  --     formatters_by_ft = {
+  --       lua = { "stylua" },
+  --       python = { "black", "pylint" },
+  --       javascript = { "prettierd" },
+  --       c = { "clang-format" },
+  --       yaml = { "yamllint", "yamlfix" },
+  --       go = { "golines" },
+  --       json = { "fixjson" },
+  --       svelte = { "prettierd" },
+  --       haskell = { "fourmolu" },
+  --       markdown = { "markdownlint", "mdformat" },
+  --       fish = { "fish", "fish_indent" },
+  --       bash = { "shellcheck", "shfmt", "shellharden" },
+  --       sh = { "shellcheck", "shfmt", "shellharden" },
+  --       clojure = { "zprint" },
+  --     },
+  --     format_on_save = { timeout_ms = 500, lsp_fallback = true },
+  --     formatters = {
+  --       shfmt = {
+  --         prepend_args = { "-i", "2" },
+  --       },
+  --       golines = {
+  --         prepend_args = { "--base-formatter", "gci" },
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "scalameta/nvim-metals",
