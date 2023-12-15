@@ -1,5 +1,6 @@
 return function(self)
-  local config = require("metals").bare_config()
+  local metals = require "metals"
+  local config = metals.bare_config()
 
   config.settings = {
     showImplicitArguments = true,
@@ -7,7 +8,17 @@ return function(self)
 
   config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-  config.on_attach = require "custom.util.saveform"
+  config.on_attach = function(client, bufnr)
+    require "custom.util.saveform"(client, bufnr)
+
+    for mode, v in pairs(require("core.mappings").lspconfig) do
+      if mode ~= "plugin" then
+        for k, info in pairs(v) do
+          vim.keymap.set(mode, k, info[1])
+        end
+      end
+    end
+  end
 
   local metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
   vim.api.nvim_create_autocmd("FileType", {
