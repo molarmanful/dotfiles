@@ -44,6 +44,7 @@ local font = function(fam, size, scale)
 end
 
 font({ "eldur" }, 9.75, 0.7)
+-- font({ "jokull" }, 13.75, 0.7)
 -- font({ "TamzenForPowerline" }, 9, 0.8)
 -- font({ "CozetteVector" }, 9.75, 0.7)
 -- font({ "creep2" }, 8, 0.7)
@@ -91,15 +92,20 @@ cfg.keys = {
 	{ key = "l", mods = "LEADER", action = act.ShowDebugOverlay },
 }
 
+local fnt_dpi = function(gui_window)
+	local overrides = gui_window:get_config_overrides() or {}
+	overrides.font_size = cfg.font_size * 96 / gui_window:get_dimensions().dpi
+	gui_window:set_config_overrides(overrides)
+end
+
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	local gui_window = window:gui_window()
-	local overrides = gui_window:get_config_overrides() or {}
 	gui_window:toggle_fullscreen()
-	overrides.font_size = cfg.font_size * 96 / gui_window:get_dimensions().dpi
-	gui_window:set_config_overrides(overrides)
-	print(overrides.font_size)
+	fnt_dpi(gui_window)
 end)
+
+wezterm.on("window-config-reloaded", fnt_dpi)
 
 wezterm.on("dbl-font", function(window, pane)
 	for _ = 1, 7 do
