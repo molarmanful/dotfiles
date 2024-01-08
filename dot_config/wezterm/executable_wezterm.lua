@@ -44,7 +44,7 @@ local font = function(fam, size, scale)
 end
 
 font({ "eldur" }, 9.75, 0.7)
--- font({ "jokull" }, 13.75, 0.7)
+-- font({ "jokull" }, 13.5, 0.7)
 -- font({ "TamzenForPowerline" }, 9, 0.8)
 -- font({ "CozetteVector" }, 9.75, 0.7)
 -- font({ "creep2" }, 8, 0.7)
