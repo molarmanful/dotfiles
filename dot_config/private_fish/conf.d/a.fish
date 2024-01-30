@@ -31,6 +31,7 @@ if not test -d ~/.local/share/pnpm
     npm i -g pnpm
 end
 fish_add_path ~/.local/share/pnpm
+set -gx PNPM_HOME ~/.local/share/pnpm
 
 # RUST
 

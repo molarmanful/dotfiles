@@ -83,7 +83,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require "custom.configs.lspconfig"(lsps)
+      require "custom.configs.lspconfig" (lsps)
     end,
   },
 
@@ -101,7 +101,7 @@ return {
       "williamboman/mason.nvim",
       "nvimtools/none-ls.nvim",
     },
-    opts = require "custom.configs.mason-null-ls"(fmts),
+    opts = require "custom.configs.mason-null-ls" (fmts),
   },
 
   {
@@ -122,7 +122,7 @@ return {
       },
     },
     config = function(_, opts)
-      require "custom.configs.treesitter"(opts)
+      require "custom.configs.treesitter" (opts)
     end,
   },
 
