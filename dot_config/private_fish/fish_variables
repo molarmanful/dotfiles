@@ -10,13 +10,19 @@ SETUVAR _fisher_plugins:jorgebucaran/fisher\x1erstacruz/fish\x2dasdf\x1enickeb96
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_30_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_rstacruz_2F_fish_2D_asdf_files:\x7e/\x2econfig/fish/conf\x2ed/asdf\x2efish\x1e\x7e/\x2econfig/fish/completions/asdf\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _hydro_git_10:main\u2022\x20
+SETUVAR _hydro_git_11551:v2\x2e0\x20
+SETUVAR _hydro_git_12520:main\u2022\x20
 SETUVAR _hydro_git_15551:main\x20
+SETUVAR _hydro_git_17664:main\x20
 SETUVAR _hydro_git_19570:main\u2022\x20
-SETUVAR _hydro_git_3643:main\x20
+SETUVAR _hydro_git_30367:main\u2022\x20
 SETUVAR _hydro_git_380:main\x20
+SETUVAR _hydro_git_467:main\u2022\x20
 SETUVAR _hydro_git_90162:main\x20
 SETUVAR _hydro_git_91205:main\x20
 SETUVAR _hydro_git_91354:v2\x2e0\x20
+SETUVAR _hydro_git_9423:main\u2022\x20
 SETUVAR _hydro_git_9922:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
@@ -46,4 +52,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/benji/\x2elocal/bin\x1e/home/benji/\x2efly/bin\x1e/home/benji/\x2elocal/share/bob/nvim\x2dbin\x1e/home/benji/\x2ecargo/bin\x1e/home/benji/\x2elocal/share/pnpm\x1e/home/benji/\x2evolta/bin\x1e/home/benji/\x2efzf/bin
+SETUVAR fish_user_paths:/home/linuxbrew/\x2elinuxbrew/bin\x1e/home/benji/\x2easdf/shims\x1e/home/benji/\x2easdf/bin\x1e/home/benji/\x2elocal/bin\x1e/home/benji/\x2efly/bin\x1e/home/benji/\x2elocal/share/bob/nvim\x2dbin\x1e/home/benji/\x2ecargo/bin\x1e/home/benji/\x2elocal/share/pnpm\x1e/home/benji/\x2evolta/bin\x1e/home/benji/\x2efzf/bin

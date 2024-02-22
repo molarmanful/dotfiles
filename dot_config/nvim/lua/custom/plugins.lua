@@ -27,7 +27,6 @@ local fmts = {
   "markdownlint",
   "mdformat",
   "shfmt",
-  "shellcheck",
   "shellharden",
   "write-good",
   "yamllint",
