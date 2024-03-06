@@ -22,7 +22,6 @@ local fmts = {
   "black",
   "pylint",
   "stylua",
-  "semgrep",
   "fixjson",
   "markdownlint",
   "mdformat",
