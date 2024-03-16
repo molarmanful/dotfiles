@@ -43,7 +43,7 @@ local font = function(fam, size, scale)
   cfg.font_size = size
 end
 
-font({ "eldur" }, 9.75, 0.7)
+-- font({ "eldur" }, 9.75, 0.7)
 font({ "kirsch" }, 12, 0.7)
 -- font({ "jokull" }, 13.5, 0.7)
 -- font({ "TamzenForPowerline" }, 9, 0.8)
