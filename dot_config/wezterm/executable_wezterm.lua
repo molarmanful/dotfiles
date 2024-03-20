@@ -9,6 +9,7 @@ if wezterm.config_builder then
 end
 
 cfg.default_domain = "WSL:Ubuntu-22.04"
+cfg.front_end = "WebGpu"
 cfg.webgpu_power_preference = "HighPerformance"
 cfg.use_dead_keys = false
 cfg.scrollback_lines = 5000
