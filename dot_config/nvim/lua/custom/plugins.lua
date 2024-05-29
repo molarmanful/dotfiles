@@ -15,6 +15,7 @@ local lsps = {
   "gopls",
   "clangd",
   "clojure_lsp",
+  "perlnavigator",
 }
 
 local fmts = {
@@ -37,6 +38,8 @@ local fmts = {
   "clang-format",
   "actionlint",
   "fourmolu",
+  "perlimports",
+  "perltidy",
 }
 
 local syns = {
@@ -54,6 +57,7 @@ local syns = {
   "zig",
   "scala",
   "haskell",
+  "perl",
   "markdown",
   "markdown_inline",
   "toml",
@@ -191,6 +195,8 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
       "sindrets/diffview.nvim",
     },
     config = true,
