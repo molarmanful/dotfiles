@@ -35,17 +35,32 @@ cfg.colors = {
 }
 cfg.use_fancy_tab_bar = false
 
-local font = function(fam, size, scale)
+local font = function(fam, size, scale, nobold)
   local f = fam
+  local fe = { family = fam, assume_emoji_presentation = true }
   if type(fam) == "table" then
     f = { family = fam[1], weight = "Medium" }
+    fe = { family = fam[1], weight = "Medium", assume_emoji_presentation = true }
   end
-  cfg.font = wezterm.font_with_fallback({ f, { family = "Symbols Nerd Font", scale = scale } })
+  local ff = wezterm.font_with_fallback(scale > 0 and {
+    f,
+    fe,
+    { family = "Symbols Nerd Font", scale = scale },
+  } or { f, fe })
+  cfg.font = ff
   cfg.font_size = size
+  if nobold then
+    cfg.font_rules = {}
+    for _, a in ipairs({ "Normal", "Half", "Bold" }) do
+      table.insert(cfg.font_rules, { intensity = a, italic = false, font = ff })
+      table.insert(cfg.font_rules, { intensity = a, italic = true, font = ff })
+    end
+  end
 end
 
 -- font({ "eldur" }, 9.75, 0.7)
-font({ "kirsch" }, 12, 0.7)
+font({ "kirsch" }, 12, 0.6, true)
+-- font({ "Kirsch Nerd Font Mono" }, 12, 0, true)
 -- font({ "jokull" }, 13.5, 0.7)
 -- font({ "TamzenForPowerline" }, 9, 0.8)
 -- font({ "CozetteVector" }, 9.75, 0.7)
@@ -53,6 +68,8 @@ font({ "kirsch" }, 12, 0.7)
 -- font("Greybeard 11px", 8, 0.8)
 -- font({ "scientifica" }, 8, 0.7)
 cfg.custom_block_glyphs = false
+cfg.use_cap_height_to_scale_fallback_fonts = true
+-- cfg.treat_east_asian_ambiguous_width_as_wide = true
 -- cfg.cell_width = 0.5
 -- cfg.line_height = 1.2
 -- cfg.freetype_load_flags = "NO_HINTING"

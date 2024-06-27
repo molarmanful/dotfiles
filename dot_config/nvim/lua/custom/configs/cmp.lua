@@ -1,7 +1,10 @@
 local cmp = require "cmp"
 local opts = require "plugins.configs.cmp"
 
-vim.list_extend(opts.sources, { { name = "copilot" }, { name = "conjure" } })
+vim.list_extend(opts.sources, {
+  { name = "copilot" },
+  { name = "conjure" },
+})
 
 for k, v in pairs {
   ["<Tab>"] = cmp.mapping.confirm(),

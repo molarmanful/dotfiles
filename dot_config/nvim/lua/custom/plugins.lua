@@ -242,4 +242,35 @@ return {
     ft = { "markdown" },
     branch = "master",
   },
+
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   lazy = false,
+  --   config = function()
+  --     require("codecompanion").setup {
+  --       adapters = {
+  --         anthropic = require("codecompanion.adapters").use("anthropic", {
+  --           env = {
+  --             api_key = "ANTHROPIC_KEY",
+  --           },
+  --           schema = {
+  --             model = {
+  --               default = "claude-3-5-sonnet-20240620",
+  --             },
+  --           },
+  --         }),
+  --       },
+  --       strategies = {
+  --         chat = "anthropic",
+  --         inline = "anthropic",
+  --         tool = "anthropic",
+  --       },
+  --     }
+  --   end,
+  -- },
 }

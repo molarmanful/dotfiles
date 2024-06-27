@@ -77,4 +77,18 @@ M.lspconfig = {
   },
 }
 
+M.codecompanion = {
+
+  n = {
+    ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
+    ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
+  },
+
+  v = {
+    ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
+    ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
+    ["ga"] = { "<cmd> CodeCompanionAdd <cr>", "Add visual selection to current chat buffer" },
+  },
+}
+
 return M

@@ -11,3 +11,6 @@ opt.whichwrap = "b,s"
 opt.wrap = false
 
 filetype.add { extension = { sclin = "sclin" } }
+
+cmd [[cab cc CodeCompanion]]
+cmd [[cab ccb CodeCompanionWithBuffers]]
