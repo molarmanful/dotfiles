@@ -16,6 +16,7 @@ local lsps = {
   "clangd",
   "clojure_lsp",
   "perlnavigator",
+  "markdown_oxide",
 }
 
 local fmts = {
@@ -25,10 +26,9 @@ local fmts = {
   "stylua",
   "fixjson",
   "markdownlint",
-  "mdformat",
   "shfmt",
+  "gitsigns",
   "shellharden",
-  "write-good",
   "yamllint",
   "yamlfix",
   "gci",
@@ -308,6 +308,7 @@ return {
           path = "~/obsidian/0",
         },
       },
+      disable_frontmatter = true,
     },
   },
 

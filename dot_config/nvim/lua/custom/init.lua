@@ -9,8 +9,9 @@ g.vim_markdown_folding_disabled = 1
 opt.scrolloff = 999
 opt.whichwrap = "b,s"
 opt.wrap = false
+opt.conceallevel = 1
 
 filetype.add { extension = { sclin = "sclin" } }
 
-cmd [[cab cc CodeCompanion]]
-cmd [[cab ccb CodeCompanionWithBuffers]]
+-- cmd [[cab cc CodeCompanion]]
+-- cmd [[cab ccb CodeCompanionWithBuffers]]
