@@ -17,6 +17,8 @@ if not test -d ~/.asdf/plugins/coursier
     coursier install metals scalafmt
 end
 
+fish_add_path ~/.local/share/coursier/bin
+
 # HASKELL
 
 if not test -e ~/.ghcup/bin/stack

@@ -243,6 +243,32 @@ return {
     branch = "master",
   },
 
+  {
+    "lambdalisue/vim-suda",
+    lazy = false,
+  },
+
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "0",
+          path = "~/obsidian/0",
+        },
+      },
+    },
+  },
+
   -- {
   --   "olimorris/codecompanion.nvim",
   --   dependencies = {
