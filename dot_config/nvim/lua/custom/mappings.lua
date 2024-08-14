@@ -77,17 +77,53 @@ M.lspconfig = {
   },
 }
 
-M.codecompanion = {
+-- M.codecompanion = {
+--
+--   n = {
+--     ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
+--     ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
+--   },
+--
+--   v = {
+--     ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
+--     ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
+--     ["ga"] = { "<cmd> CodeCompanionAdd <cr>", "Add visual selection to current chat buffer" },
+--   },
+-- }
+
+M.dap = {
 
   n = {
-    ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
-    ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
-  },
-
-  v = {
-    ["<leader><C-a>"] = { "<cmd> CodeCompanionActions <cr>", "Open actions palette" },
-    ["<leader>a"] = { "<cmd> CodeCompanionToggle <cr>", "Toggle companion" },
-    ["ga"] = { "<cmd> CodeCompanionAdd <cr>", "Add visual selection to current chat buffer" },
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle breakpoint",
+    },
+    ["<leader>dc"] = {
+      function()
+        require("dap").continue()
+      end,
+      "Continue debugger",
+    },
+    ["<leader>di"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step into",
+    },
+    ["<leader>do"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step over",
+    },
+    ["<leader>dI"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Step over",
+    },
   },
 }
 

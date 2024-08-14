@@ -69,6 +69,14 @@ local syns = {
   "fish",
 }
 
+local daps = {
+  "js",
+  "firefox",
+  "delve",
+  "python",
+  "haskell",
+}
+
 return {
 
   {
@@ -107,7 +115,41 @@ return {
   },
 
   {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "mxsdev/nvim-dap-vscode-js",
+      "leoluz/nvim-dap-go",
+      "mfussenegger/nvim-dap-python",
+      {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+          "nvim-neotest/nvim-nio",
+        },
+      },
+    },
+    config = function()
+      require "custom.configs.dap"
+    end,
+  },
+
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      ensure_installed = daps,
+    },
+  },
+
+  {
     "scalameta/nvim-metals",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+    },
     ft = { "scala", "sbt", "java" },
     config = require "custom.configs.nvim-metals",
   },
