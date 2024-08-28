@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 local set = vim.keymap.set
 local del = vim.keymap.del
@@ -36,13 +36,13 @@ set("n", "<leader>Q", "<cmd> Telescope diagnostics <CR>", { desc = "telescope Li
 -- LSPCONFIG
 
 set("n", "<leader>lf", function()
-  vim.diagnostic.open_float { border = "single" }
+  vim.diagnostic.open_float({ border = "single" })
 end, { desc = "lspconfig Floating diagnostic" })
 set("n", "[d", function()
-  vim.diagnostic.goto_prev { float = { border = "single" } }
+  vim.diagnostic.goto_prev({ float = { border = "single" } })
 end, { desc = "lspconfig Goto prev" })
 set("n", "]d", function()
-  vim.diagnostic.goto_next { float = { border = "single" } }
+  vim.diagnostic.goto_next({ float = { border = "single" } })
 end, { desc = "lspconfig Goto next" })
 
 -- CODECOMPANION

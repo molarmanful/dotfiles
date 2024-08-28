@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local opt = vim.opt
 local g = vim.g
@@ -12,7 +12,7 @@ opt.whichwrap = "b,s"
 opt.wrap = false
 opt.conceallevel = 1
 
-filetype.add { extension = { sclin = "sclin" } }
+filetype.add({ extension = { sclin = "sclin" } })
 
 -- cmd [[cab cc CodeCompanion]]
 -- cmd [[cab ccb CodeCompanionWithBuffers]]
