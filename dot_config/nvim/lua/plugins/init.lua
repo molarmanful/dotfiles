@@ -81,6 +81,9 @@ local daps = {
 
 return {
 
+  { 'mfussenegger/nvim-lint', enabled = false },
+  { 'stevearc/conform.nvim',  enabled = false },
+
   {
     'williamboman/mason.nvim',
     opts = {
