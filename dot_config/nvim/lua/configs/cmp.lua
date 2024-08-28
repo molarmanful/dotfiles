@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-local opts = require "plugins.configs.cmp"
+local opts = require "nvchad.configs.cmp"
 
 vim.list_extend(opts.sources, {
   { name = "copilot" },

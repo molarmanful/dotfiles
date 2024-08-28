@@ -9,7 +9,7 @@ return function(self)
   config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   config.on_attach = function(client, bufnr)
-    require "custom.util.saveform"(client, bufnr)
+    require "util.saveform"(client, bufnr)
 
     for mode, v in pairs(require("core.mappings").lspconfig) do
       if mode ~= "plugin" then

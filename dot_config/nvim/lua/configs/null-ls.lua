@@ -9,5 +9,5 @@ null_ls.setup {
     lint.fish,
     formatting.fish_indent,
   },
-  on_attach = require "custom.util.saveform",
+  on_attach = require "util.saveform",
 }

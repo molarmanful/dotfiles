@@ -95,14 +95,14 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require "custom.configs.lspconfig" (lsps)
+      require "configs.lspconfig" (lsps)
     end,
   },
 
   {
     "nvimtools/none-ls.nvim",
     config = function()
-      require "custom.configs.null-ls"
+      require "configs.null-ls"
     end,
   },
 
@@ -113,7 +113,7 @@ return {
       "williamboman/mason.nvim",
       "nvimtools/none-ls.nvim",
     },
-    opts = require "custom.configs.mason-null-ls" (fmts),
+    opts = require "configs.mason-null-ls" (fmts),
   },
 
   {
@@ -129,9 +129,9 @@ return {
         },
       },
     },
-    config = function()
-      require "custom.configs.dap"
-    end,
+    -- config = function()
+    --   require "configs.dap"
+    -- end,
   },
 
   {
@@ -153,7 +153,7 @@ return {
       "mfussenegger/nvim-dap",
     },
     ft = { "scala", "sbt", "java" },
-    config = require "custom.configs.nvim-metals",
+    config = require "configs.nvim-metals",
   },
 
   {
@@ -168,7 +168,7 @@ return {
       },
     },
     config = function(_, opts)
-      require "custom.configs.treesitter" (opts)
+      require "configs.treesitter" (opts)
     end,
   },
 
@@ -185,7 +185,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     config = function()
-      require "custom.configs.cmp"
+      require "configs.cmp"
     end,
   },
 
@@ -208,7 +208,7 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    opts = require "custom.configs.telescope",
+    opts = require "configs.telescope",
   },
 
   {

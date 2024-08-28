@@ -1,4 +1,4 @@
-local opts = require "plugins.configs.telescope"
+local opts = require "nvchad.configs.telescope"
 
 vim.list_extend(opts.extensions_list, { "persisted" })
 
