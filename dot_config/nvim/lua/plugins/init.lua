@@ -21,7 +21,7 @@ local lsps = {
 }
 
 local fmts = {
-  'prettierd',
+  -- 'prettierd',
   'black',
   'pylint',
   'stylua',
