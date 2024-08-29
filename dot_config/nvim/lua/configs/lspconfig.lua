@@ -2,10 +2,11 @@ local lspconfig = require 'lspconfig'
 local set = vim.keymap.set
 
 local configs = require 'nvchad.configs.lspconfig'
+local on_init = configs.on_init
 local on_attach = function(client, bufnr)
   configs.on_attach(client, bufnr)
-  set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions' })
-  set('n', 'gr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references' })
+  set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions', buffer = bufnr })
+  set('n', 'gr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references', buffer = bufnr })
 end
 local capabilities = configs.capabilities
 
@@ -72,11 +73,8 @@ local overrides = {
 
 return function(lsps)
   for _, lsp in ipairs(lsps) do
-    if lsp == 'tsserver' then
-      goto continue
-    end
-
     local res = {
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
     }
@@ -84,8 +82,6 @@ return function(lsps)
       res[k] = v
     end
     lspconfig[lsp].setup(res)
-
-    ::continue::
   end
 
   require('mason-lspconfig').setup {
