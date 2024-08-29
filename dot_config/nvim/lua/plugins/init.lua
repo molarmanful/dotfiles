@@ -18,6 +18,7 @@ local lsps = {
   'clojure_lsp',
   'perlnavigator',
   'markdown_oxide',
+  'vtsls',
 }
 
 local fmts = {
@@ -157,12 +158,6 @@ return {
     },
     ft = { 'scala', 'sbt', 'java' },
     config = require 'configs.nvim-metals',
-  },
-
-  {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
   },
 
   {

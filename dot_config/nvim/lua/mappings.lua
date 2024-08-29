@@ -28,8 +28,6 @@ set('n', '<leader>ff', '<cmd> Telescope file_browser hidden=true <CR>', { desc =
 set('n', '<leader>fs', '<cmd> Telescope persisted <CR>', { desc = 'telescope Find session' })
 set('n', '<leader>fx', '<cmd> Telescope lsp_document_symbols <CR>', { desc = 'telescope Find LSP symbol' })
 set('n', '<leader>fX', '<cmd> Telescope lsp_workspace_symbols <CR>', { desc = 'telescope Find LSP symbol' })
-set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions' })
-set('n', 'gr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references' })
 set('n', '<leader>q', '<cmd> Telescope diagnostics bufnr=0 <CR>', { desc = 'telescope List LSP diagnostics' })
 set('n', '<leader>Q', '<cmd> Telescope diagnostics <CR>', { desc = 'telescope List LSP diagnostics' })
 
