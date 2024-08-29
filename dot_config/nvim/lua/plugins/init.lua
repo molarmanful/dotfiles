@@ -160,6 +160,12 @@ return {
   },
 
   {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'windwp/nvim-ts-autotag',
