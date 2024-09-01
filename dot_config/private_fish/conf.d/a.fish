@@ -71,6 +71,10 @@ if not test -e ~/.cargo/bin/rg
     cargo install ripgrep
 end
 
+if not test -e ~/.cargo/bin/rgr
+    cargo install repgrep
+end
+
 if not test -e ~/.cargo/bin/fd
     cargo install fd-find
 end
