@@ -165,12 +165,6 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      {
-        'windwp/nvim-ts-autotag',
-        opts = {},
-      },
-    },
     opts = {
       ensure_installed = syns,
       autotag = {
@@ -180,6 +174,11 @@ return {
     config = function(_, opts)
       require 'configs.treesitter' (opts)
     end,
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {},
   },
 
   {
