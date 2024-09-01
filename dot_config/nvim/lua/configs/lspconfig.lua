@@ -74,6 +74,12 @@ return function(lsps)
     emmet_language_server = {
       filetypes = { 'svelte' },
     },
+
+    html = {
+      init_options = {
+        provideFormatter = false,
+      },
+    },
   }
 
   for _, lsp in ipairs(lsps) do
