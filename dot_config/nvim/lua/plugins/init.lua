@@ -20,10 +20,11 @@ local lsps = {
   'perlnavigator',
   'markdown_oxide',
   'vtsls',
+  'emmet_language_server',
 }
 
 local fmts = {
-  -- 'prettierd',
+  'prettierd',
   'black',
   'pylint',
   'stylua',
