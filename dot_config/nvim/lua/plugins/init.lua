@@ -10,6 +10,7 @@ local lsps = {
   'stylelint_lsp',
   'dockerls',
   'yamlls',
+  'tailwindcss',
   'unocss',
   'hls',
   'gopls',
