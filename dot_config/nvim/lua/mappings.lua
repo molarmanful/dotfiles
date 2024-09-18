@@ -25,6 +25,12 @@ end, { desc = 'neogit Open neogit' })
 -- TELESCOPE
 
 set('n', '<leader>ff', '<cmd> Telescope file_browser hidden=true <CR>', { desc = 'telescope File browser' })
+set(
+  'n',
+  '<leader>fr',
+  '<cmd> Telescope file_browser hidden=true path=%:p:h <CR>',
+  { desc = 'telescope File browser (relative)' }
+)
 set('n', '<leader>fs', '<cmd> Telescope persisted <CR>', { desc = 'telescope Find session' })
 set('n', '<leader>fx', '<cmd> Telescope lsp_document_symbols <CR>', { desc = 'telescope Find LSP symbol' })
 set('n', '<leader>fX', '<cmd> Telescope lsp_workspace_symbols <CR>', { desc = 'telescope Find LSP symbol' })
