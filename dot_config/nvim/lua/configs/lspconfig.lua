@@ -5,8 +5,7 @@ local configs = require 'nvchad.configs.lspconfig'
 local on_init = configs.on_init
 local on_attach = function(client, bufnr)
   configs.on_attach(client, bufnr)
-  set('n', 'gd', '<cmd> Telescope lsp_definitions <CR>', { desc = 'telescope Find LSP definitions', buffer = bufnr })
-  set('n', 'gr', '<cmd> Telescope lsp_references <CR>', { desc = 'telescope Find LSP references', buffer = bufnr })
+  require 'util.lspkeys' (bufnr)
 end
 local capabilities = configs.capabilities
 
