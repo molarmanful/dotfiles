@@ -72,6 +72,7 @@ local syns = {
   'java',
   'clojure',
   'fish',
+  'comment',
 }
 
 local daps = {
