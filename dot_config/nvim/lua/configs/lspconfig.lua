@@ -93,6 +93,13 @@ return function(lsps)
     lspconfig[lsp].setup(res)
   end
 
+  lspconfig.gdscript.setup {
+    cmd = { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+    end,
+  }
+
   require('mason-lspconfig').setup {
     ensure_installed = lsps,
   }

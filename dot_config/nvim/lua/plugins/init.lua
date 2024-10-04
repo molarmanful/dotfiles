@@ -45,6 +45,8 @@ local fmts = {
   'fourmolu',
   'perlimports',
   'perltidy',
+  'gdformat',
+  'gdlint',
 }
 
 local syns = {
@@ -73,6 +75,7 @@ local syns = {
   'clojure',
   'fish',
   'comment',
+  'gdscript',
 }
 
 local daps = {
