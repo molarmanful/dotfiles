@@ -45,8 +45,7 @@ local fmts = {
   'fourmolu',
   'perlimports',
   'perltidy',
-  'gdformat',
-  'gdlint',
+  'gdtoolkit',
 }
 
 local syns = {

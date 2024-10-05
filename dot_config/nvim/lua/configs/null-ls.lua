@@ -7,7 +7,9 @@ null_ls.setup {
   debug = true,
   sources = {
     lint.fish,
+    lint.gdlint,
     formatting.fish_indent,
+    formatting.gdformat,
   },
   on_attach = require 'util.saveform',
 }
