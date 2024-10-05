@@ -97,6 +97,14 @@ return function(lsps)
     cmd = { 'godot-wsl-lsp', '--useMirroredNetworking', '--host', '127.0.0.1' },
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
+      nvim.api.nvim_create_autocmd('BufReadPre', {
+        buffer = bufnr,
+        callback = function()
+          vim.local_opts.expandtab = false
+          vim.local_opts.tabstop = 4
+          vim.local_opts.shiftwidth = 4
+        end,
+      })
     end,
   }
 
