@@ -22,6 +22,11 @@ return function(fmts)
             extra_filetypes = { 'svelte' },
           })
         end,
+        gdformat = function()
+          null_ls.register(formatting.gdformat.with {
+            args = { '--line-length', '80' },
+          })
+        end,
       },
     }
   end
