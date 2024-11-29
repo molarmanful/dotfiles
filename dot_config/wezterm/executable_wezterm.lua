@@ -59,7 +59,7 @@ local font = function(fam, size, scale, nobold)
 end
 
 font({ 'kirsch' }, 12, 0.6, true)
--- font("JuliaMono Nerd Font Mono", 10, 1)
+-- font('JuliaMono Nerd Font Mono', 10, 1)
 -- cfg.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- font({ "eldur" }, 9.75, 0.7)
 -- font({ "Kirsch Nerd Font Mono" }, 12, 0, true)
