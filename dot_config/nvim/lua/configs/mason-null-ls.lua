@@ -20,7 +20,7 @@ return function(fmts)
         prettierd = function()
           null_ls.register(formatting.prettier.with {
             extra_filetypes = { 'svelte' },
-            -- disabled_filetypes = { 'markdown' },
+            disabled_filetypes = { 'markdown' },
           })
         end,
         gdformat = function()
