@@ -5,7 +5,7 @@ return function(fmts)
 
     return {
       ensure_installed = fmts,
-      automatic_installation = true,
+      automatic_installation = false,
       handlers = {
         gci = function() end,
         golines = function()
@@ -20,6 +20,7 @@ return function(fmts)
         prettierd = function()
           null_ls.register(formatting.prettier.with {
             extra_filetypes = { 'svelte' },
+            -- disabled_filetypes = { 'markdown' },
           })
         end,
         gdformat = function()
