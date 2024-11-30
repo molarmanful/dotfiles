@@ -184,12 +184,12 @@ return {
     opts = {},
   },
 
-  -- {
-  --   'hrsh7th/nvim-cmp',
-  --   config = function()
-  --     require 'configs.cmp'
-  --   end,
-  -- },
+  {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require 'configs.cmp'
+    end,
+  },
 
   {
     'olimorris/persisted.nvim',
