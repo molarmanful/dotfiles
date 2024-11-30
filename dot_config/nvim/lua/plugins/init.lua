@@ -14,7 +14,6 @@ local lsps = {
   'unocss',
   'hls',
   'gopls',
-  'sqls',
   'clangd',
   'clojure_lsp',
   'perlnavigator',
@@ -185,29 +184,12 @@ return {
     opts = {},
   },
 
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-    },
-  },
-
-  {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require 'configs.cmp'
-    end,
-  },
-
-  {
-    'zbirenbaum/copilot-cmp',
-    config = function()
-      require('copilot_cmp').setup()
-    end,
-  },
+  -- {
+  --   'hrsh7th/nvim-cmp',
+  --   config = function()
+  --     require 'configs.cmp'
+  --   end,
+  -- },
 
   {
     'olimorris/persisted.nvim',
@@ -326,35 +308,4 @@ return {
       disable_frontmatter = true,
     },
   },
-
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   lazy = false,
-  --   config = function()
-  --     require("codecompanion").setup {
-  --       adapters = {
-  --         anthropic = require("codecompanion.adapters").use("anthropic", {
-  --           env = {
-  --             api_key = "ANTHROPIC_KEY",
-  --           },
-  --           schema = {
-  --             model = {
-  --               default = "claude-3-5-sonnet-20240620",
-  --             },
-  --           },
-  --         }),
-  --       },
-  --       strategies = {
-  --         chat = "anthropic",
-  --         inline = "anthropic",
-  --         tool = "anthropic",
-  --       },
-  --     }
-  --   end,
-  -- },
 }
