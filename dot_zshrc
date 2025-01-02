@@ -110,3 +110,5 @@ tput cvvis
 # zprof
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -e /home/benji/.nix-profile/etc/profile.d/nix.sh ]; then . /home/benji/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

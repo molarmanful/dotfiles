@@ -45,6 +45,10 @@ local fmts = {
   'perlimports',
   'perltidy',
   'gdtoolkit',
+  'nixfmt',
+  'statix',
+  'deadnix',
+  'nil',
 }
 
 local syns = {
