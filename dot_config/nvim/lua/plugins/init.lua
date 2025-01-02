@@ -20,6 +20,7 @@ local lsps = {
   'markdown_oxide',
   'vtsls',
   'emmet_language_server',
+  'nil_ls',
 }
 
 local fmts = {
@@ -48,7 +49,6 @@ local fmts = {
   'nixfmt',
   'statix',
   'deadnix',
-  'nil',
 }
 
 local syns = {
@@ -78,6 +78,7 @@ local syns = {
   'fish',
   'comment',
   'gdscript',
+  'nix',
 }
 
 local daps = {
